@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<title>Testing Aframes</title>
+  <script src="./aframemin.js"></script>
+  <script src="./alongpath.js"></script>
+  <script src="./curve.js"></script>
+      <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+
+</head>
+<body>
+ <a-scene>
+ 		<a-assets>
+    		<img id="stripes1" src="./stripes.jpg"/>
+  		          <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+
+      </a-assets>
+ 		  <a-curve id="track1">
+        <a-curve-point position="0 2 0"></a-curve-point>
+        <a-curve-point position="0 2 -1000"></a-curve-point>
+        <a-curve-point position="0 3 -3500"></a-curve-point>
+        <a-curve-point position="0 4 -7500"></a-curve-point>
+      </a-curve>
+      <a-entity position="0 1 0">
+        <a-camera alongpath="curve:#track1;dur:7000">
+        </a-camera>
+      
+      </a-entity>
+      	<a-sky color="white"></a-sky>
+     	<a-entity rotation ="90 0 0">
+           <a-cylinder src="#stripes1" radius="3" position="0 -1000 -2" height="2000" open-ended="true" side="double"/>
+           <a-cylinder src="#stripes1" radius="3.5" position="0 -2000 -2" height="2000" open-ended="true" side="double"/>
+           <a-cylinder src="#stripes1" radius="3.5" position="0 -3000 -2" height="2000" open-ended="true" side="double"/>
+           <a-cylinder src="#stripes1" radius="3.5" position="0 -4000 -2" height="2000" open-ended="true" side="double"/>
+           <a-cylinder src="#stripes1" radius="3.5" position="0 -6000 -2" height="1900" open-ended="true" side="double"/>
+      </a-entity>
+      <a-entity scale="6 6 6" geometry="primitive: torusKnot"  position="0 4 -7520" material="color: red; metalness:1; roughness: 0.1; sphericalEnvMap: #sky;">
+        <a-animation easing="linear" attribute="rotation" dur="5000" to="0 0 360" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity scale="6 6 6" geometry="primitive: torusKnot"  position="20 4 -7500" material="color: green; metalness:1; roughness: 0.1; sphericalEnvMap: #sky;">
+        <a-animation easing="linear" attribute="rotation" dur="5000" to="0 0 360" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity scale="6 6 6" geometry="primitive: torusKnot"  position="-20 4 -7500" material="color: blue; metalness:1; roughness: 0.1; sphericalEnvMap: #sky;">
+        <a-animation easing="linear" attribute="rotation" dur="5000" to="0 0 360" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity scale="6 6 6" geometry="primitive: torusKnot"  position="0 24 -7500" material="color: red; metalness:1; roughness: 0.1; sphericalEnvMap: #sky;">
+        <a-animation easing="linear" attribute="rotation" dur="5000" to="0 0 360" repeat="indefinite"></a-animation>
+      </a-entity>
+    </a-scene>
+</body>
+</html>
